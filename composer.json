@@ -1,0 +1,22 @@
+{
+    "name": "vim22th/A",
+    "description": "A php framework",
+    "keywords": ["php", "framework"],
+    "homepage": "https://github.com/vim22th/A",
+    "authors": [
+        {
+            "name": "Ryan Ding",
+            "email": "ddinnnng@qq.com",
+            "homepage": "http://blog.vim22th.com/"
+        }
+    ],
+    "require": {
+        "psr/log": "~1.0.0",
+        "psr/http-message": "~1.0",
+        "keradus/psr4autoloader": "~2.0.1",
+        "altorouter/altorouter": "1.1.0"
+    },
+    "require-dev" : {
+        "phpunit/phpunit": "4.8.*"
+    }
+}
