@@ -40,9 +40,10 @@ $config = new system\core\Config();
 
 // Container
 $app = system\core\Application::getInstance();
+$app->setConfig($config);
 $app->setLoader($loader);
 $app->setRouter($router);
 $app->setLogger($logger);
-$app->setConfig($config);
+
 
 return $app;

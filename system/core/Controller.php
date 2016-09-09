@@ -6,6 +6,7 @@
  */
 namespace system\core;
 
-class Controller {
+class Controller
+{
 
 }

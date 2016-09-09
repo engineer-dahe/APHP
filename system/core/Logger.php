@@ -8,7 +8,8 @@ namespace system\core;
 
 use Psr\Log\AbstractLogger;
 
-class Logger extends AbstractLogger {
+class Logger extends AbstractLogger
+{
 
     /**
      * @param mixed $level

@@ -11,7 +11,8 @@ use Psr\Log\LoggerInterface;
 use system\library\singleton\Singleton;
 use system\tool\TFunction as F;
 
-class Application extends Singleton{
+class Application extends Singleton
+{
 
     /**
      * @var Router
@@ -36,42 +37,48 @@ class Application extends Singleton{
     /**
      * @param Router $router
      */
-    public function setRouter(Router $router) {
+    public function setRouter(Router $router)
+    {
         $this->router = $router;
     }
 
     /**
      * @return Router $router
      */
-    public function getRouter() {
+    public function getRouter()
+    {
         return $this->router;
     }
 
     /**
      * @param Psr4Autoloader $loader
      */
-    public function setLoader(Psr4Autoloader $loader) {
+    public function setLoader(Psr4Autoloader $loader)
+    {
         $this->loader = $loader;
     }
 
     /**
      * @return Psr4Autoloader $loader
      */
-    public function getLoader() {
+    public function getLoader()
+    {
         return $this->loader;
     }
 
     /**
      * @param LoggerInterface $logger
      */
-    public function setLogger(LoggerInterface $logger) {
+    public function setLogger(LoggerInterface $logger)
+    {
         $this->logger = $logger;
     }
 
     /**
      * @return LoggerInterface $logger
      */
-    public function getLogger() {
+    public function getLogger()
+    {
         return $this->logger;
     }
 
@@ -94,7 +101,8 @@ class Application extends Singleton{
     /**
      *
      */
-    public function run() {
+    public function run()
+    {
         /**
          * 1 初始化基础Controller、Model、View、Config、Logger、Router
          * 2 加载系统函数库
