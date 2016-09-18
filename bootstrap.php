@@ -38,7 +38,6 @@ $logger = new system\core\Logger();
 // Config
 $config = new system\core\Config();
 
-// Container
 $app = system\core\Application::getInstance();
 $app->setConfig($config);
 $app->setLoader($loader);

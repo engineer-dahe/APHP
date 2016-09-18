@@ -6,7 +6,6 @@
  */
 namespace system\core;
 
-use Jasny\SSO\Exception;
 use system\library\singleton\Singleton;
 
 class Config extends Singleton
@@ -19,23 +18,23 @@ class Config extends Singleton
      * @param null $group
      * @return null
      */
-    static public function get($name, $group = NULL)
+    public function get($name, $group = NULL)
     {
         if (!count(self::$configArr)) {
-            self::load();
+            $this->load();
         }
 
         if (is_null($group)) {
-            return self::find($name);
+            return $this->find($name);
         } else {
             return isset(self::$configArr[$group][$name]) ? self::$configArr[$group][$name] : NULL;
         }
     }
 
     /**
-     * Load config file
+     * Loading all config files.
      */
-    static private function load()
+    private function load()
     {
         foreach (glob(CONFIG_PATH . DIRECTORY_SEPARATOR . '*.php') as $fileName) {
             self::$configArr[basename($fileName, '.php')] = include $fileName;
@@ -47,7 +46,7 @@ class Config extends Singleton
      * @return null
      * @throws \Exception
      */
-    static private function find($name)
+    private function find($name)
     {
         $temp = array();
         $value = NULL;
@@ -60,7 +59,7 @@ class Config extends Singleton
         }
 
         if ($count > 1) {
-            throw new \Exception('有多个配置名称相同-' . json_encode($temp) . '-请添加$this->config->get(name,group);group参数来指定配置文件');
+            throw new \Exception('有多个配置名称相同-' . json_encode($temp) . '-请添加class::get(name,group);group参数来指定配置文件');
         }
 
         unset($temp, $count);

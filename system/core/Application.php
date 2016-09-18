@@ -108,6 +108,7 @@ class Application extends Singleton
          * 2 加载系统函数库
          */
 
+        F::debug();
         $this->config->get('a');
     }
 }
