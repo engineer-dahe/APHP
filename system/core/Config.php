@@ -6,26 +6,24 @@
  */
 namespace system\core;
 
-use system\library\singleton\Singleton;
-
-class Config extends Singleton
+class Config
 {
 
     static private $configArr = array();
 
     /**
-     * @param $name
-     * @param null $group
+     * @param string $name
+     * @param string $group
      * @return null
      */
-    public function get($name, $group = NULL)
+    static public function get($name, $group = NULL)
     {
         if (!count(self::$configArr)) {
-            $this->load();
+            self::load();
         }
 
         if (is_null($group)) {
-            return $this->find($name);
+            return self::find($name);
         } else {
             return isset(self::$configArr[$group][$name]) ? self::$configArr[$group][$name] : NULL;
         }
@@ -34,7 +32,7 @@ class Config extends Singleton
     /**
      * Loading all config files.
      */
-    private function load()
+    static private function load()
     {
         foreach (glob(CONFIG_PATH . DIRECTORY_SEPARATOR . '*.php') as $fileName) {
             self::$configArr[basename($fileName, '.php')] = include $fileName;
@@ -42,11 +40,10 @@ class Config extends Singleton
     }
 
     /**
-     * @param $name
-     * @return null
+     * @param string $name
      * @throws \Exception
      */
-    private function find($name)
+    static private function find($name)
     {
         $temp = array();
         $value = NULL;

@@ -6,15 +6,8 @@
  */
 namespace system\core;
 
-use AltoRouter;
-
-class Router extends AltoRouter
+final class Router
 {
-
-    public function __construct(array $routes, $basePath, array $matchTypes)
-    {
-        parent::__construct($routes, $basePath, $matchTypes);
-    }
 
 
 }

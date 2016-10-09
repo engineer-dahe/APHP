@@ -6,7 +6,7 @@
  */
 namespace system\tool;
 
-class TFunction {
+class Func {
 
     final static public function debug() {
         header('Content-Type: text/html; charset=UTF-8');
